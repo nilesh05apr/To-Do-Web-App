@@ -42,6 +42,12 @@
               <h6 class="card-subtitle mb-2 text-muted">{{ task.deadline }}</h6>
               {% if task.status == 'True' %}
               <h5>Task completed</h5>
+              <br>
+              <div class="btn-group bg-success bg-opacity-25" role="group" aria-label="Basic outlined example">
+                  <button type="button" class="btn btn-outline-success">
+                      <a href={% url 'delete_task' task.pk %} style="text-decoration: none;">Delete</a>
+                  </button>
+                </div>
               {% else %}
               <br>
               <div class="btn-group bg-success bg-opacity-25" role="group" aria-label="Basic outlined example">

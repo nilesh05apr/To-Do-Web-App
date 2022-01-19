@@ -60,3 +60,18 @@ def mark_complete(request,p_id):
         'form': form
     }
     return render(request,'webapp/index.html',context)
+
+
+def delete_task(request,p_id):
+    task = Task.objects.get(id=p_id)
+    try:
+        task.delete()
+    except:
+        print("No record Found!")
+    tasks = Task.objects.all()
+    form = TaskForm()
+    context = {
+        'tasks': tasks,
+        'form': form
+    }
+    return render(request,'webapp/index.html',context)
